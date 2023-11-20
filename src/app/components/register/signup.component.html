@@ -1,0 +1,22 @@
+<h1>Sign up</h1>
+
+<form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+  <mat-form-field appearance="outline">
+    <mat-label>email</mat-label>
+    <input matInput type="email" name="email" ngModel required />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Enter your password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" name="password" ngModel required />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Signup</button>
+</form>
