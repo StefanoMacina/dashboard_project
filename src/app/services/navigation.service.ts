@@ -17,4 +17,7 @@ export class NavigationService {
   gotoHomePage(){
     this._router.navigate(['','page1'])
   }
+  gotoSignupPage(){
+    this._router.navigate(['signup'])
+  }
 }

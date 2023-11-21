@@ -9,7 +9,7 @@ import { UserModel } from '../models/usermodel.model';
 })
 export class AuthService {
 
-  isLoggedin = true
+  isLoggedin = false
   API_key = 'AIzaSyAWu-oN2vHS7a1YbRD5n1lmTD6p7Yyob3Q'
   signUp_endpoint = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.API_key}`
   signIn_endpoint = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.API_key}`

@@ -40,8 +40,11 @@ export class LoginComponent {
       localStorage.setItem('user', JSON.stringify(this.authService.user))
       this.navigationService.gotoHomePage()
   })
- 
- }
+  }
+
+  gotoSignupPage(){
+    this.navigationService.gotoSignupPage()
+  }
 
 
 }
