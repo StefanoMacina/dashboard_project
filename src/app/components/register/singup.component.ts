@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../../services/auth.service';
+import { NavigationService } from '../../services/navigation.service';
 
 
 
@@ -20,16 +21,16 @@ export class signupComponent {
   hide = true
 
   constructor(
-    private authService : AuthService
+    private authService : AuthService,
+    private navigationService : NavigationService
   ){
 
   }
 
   onSubmit(formValues : NgForm){
     const {email, password} =formValues.value
-    // console.log(email, password)
     this.authService.signup({email : email, password : password, returnSecureToken : true}).subscribe((data) => {
-      console.log(data)
+      this.navigationService.gotoLoginPage()
     })
   }
 
