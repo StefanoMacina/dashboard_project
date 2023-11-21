@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserModel } from '../models/usermodel.model';
 
@@ -15,10 +15,11 @@ export class AuthService {
   signIn_endpoint = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.API_key}`
   user : UserModel | undefined | null
 
-  constructor(
-    private _router : Router,
-    private _http : HttpClient
-  ) { }
+  count = signal(0)
+    
+
+  private _router = inject(Router)
+  private _http = inject(HttpClient)
     
   createUser(email : string, id : string, _token : string, _expirationDate : Date){
     this.user = new UserModel(email, id, _token, _expirationDate )
@@ -30,7 +31,7 @@ export class AuthService {
     }
 
     signin(body : {}){
-      return this._http.post(this.signIn_endpoint, body)
+      return this._http.post<UserModel>(this.signIn_endpoint, body)
     }
 
     logout(){

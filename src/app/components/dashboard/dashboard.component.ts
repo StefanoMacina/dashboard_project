@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -24,14 +24,24 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
-export class DashboardComponent {
+export class DashboardComponent{
   
   constructor(
-    private authService : AuthService
-  ){}
+    private authService : AuthService,
+    
+    ){
+    console.log(this.authService.count())
+  }
+  
+
+
 
   logout(){
     this.authService.logout()
   }
+
+
+
+
 
 }
