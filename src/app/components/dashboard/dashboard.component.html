@@ -1,13 +1,31 @@
+<mat-toolbar color="primary">
+    <button (click)="sidemenu.toggle()"  mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Dashboard</span>
+    <span class="example-spacer"></span>
+    <p mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      logout
+    </p>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
 <mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened>
+  <mat-drawer mode="side" #sidemenu opened>
     <mat-list>
-      <mat-list-item routerLink="page1">Page 1</mat-list-item>
-      <mat-list-item routerLink="page2">Page 2</mat-list-item>
-      <mat-list-item routerLink="page3">Page 3</mat-list-item>
+      <mat-list-item routerLink="page1" [routerLinkActive]="'active'"
+        >Page 1</mat-list-item
+      >
+      <mat-list-item routerLink="page2" [routerLinkActive]="'active'"
+        >Page 2</mat-list-item
+      >
+      <mat-list-item routerLink="page3" [routerLinkActive]="'active'"
+        >Page 3</mat-list-item
+      >
     </mat-list>
   </mat-drawer>
   <mat-drawer-content>
-  <router-outlet>
-  </router-outlet>
+    <router-outlet> </router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
