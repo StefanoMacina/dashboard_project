@@ -18,6 +18,7 @@
       <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
     </button>
   </mat-form-field>
-  <button mat-raised-button color="primary" type="submit">Signup</button>
+  <button mat-raised-button color="primary" [disabled]="!signupForm.valid" type="submit" style="margin-bottom : 1rem">Signup</button>
+  <button mat-raised-button color="primary" type="submit" (click)="gotoLoginPage()">go to login</button>
 </form>
 </div>

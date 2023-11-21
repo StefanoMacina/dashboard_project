@@ -22,6 +22,7 @@ export class AuthService {
     
   createUser(email : string, id : string, _token : string, _expirationDate : Date){
     this.user = new UserModel(email, id, _token, _expirationDate )
+    this.isLoggedin = true
   }
 
     signup(body : {}){
@@ -30,6 +31,13 @@ export class AuthService {
 
     signin(body : {}){
       return this._http.post(this.signIn_endpoint, body)
+    }
+
+    logout(){
+      this.user = null,
+      localStorage.removeItem('user'),
+      this.isLoggedin = false,
+      this._router.navigate(['login'])
     }
 
 

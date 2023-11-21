@@ -6,6 +6,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon'; 
 import {MatButtonModule} from '@angular/material/button'; 
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -25,5 +26,12 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class DashboardComponent {
   
+  constructor(
+    private authService : AuthService
+  ){}
+
+  logout(){
+    this.authService.logout()
+  }
 
 }

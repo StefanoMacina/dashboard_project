@@ -37,8 +37,8 @@ export class LoginComponent {
       new Date().getTime() + expiresIn * 1000
     );
     this.authService.createUser(email, idToken, localId, expirationDate)
-      localStorage.setItem('user', JSON.stringify(this.authService.user))
-      this.navigationService.gotoHomePage()
+    localStorage.setItem('user', JSON.stringify(this.authService.user))
+    this.navigationService.gotoHomePage()
   })
   }
 

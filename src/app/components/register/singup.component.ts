@@ -34,4 +34,8 @@ export class signupComponent {
     })
   }
 
+  gotoLoginPage(){
+    this.navigationService.gotoLoginPage()
+  }
+
 }
