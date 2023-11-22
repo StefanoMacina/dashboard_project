@@ -7,13 +7,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../../services/auth.service';
 import { NavigationService } from '../../services/navigation.service';
+import { RouterLink } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatFormFieldModule, FormsModule, MatInputModule, MatIconModule],
+  imports: [CommonModule, MatButtonModule, MatFormFieldModule, FormsModule, MatInputModule, MatIconModule, RouterLink],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })
@@ -34,8 +35,5 @@ export class signupComponent {
     })
   }
 
-  gotoLoginPage(){
-    this.navigationService.gotoLoginPage()
-  }
 
 }

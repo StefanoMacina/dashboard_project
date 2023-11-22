@@ -18,11 +18,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     const user = localStorage.getItem('user');
-  if (user) {
-    const { email, id, __token, _expirationDate } = JSON.parse(user);
-    this.authService.createUser(email, id, __token, _expirationDate);
-  } else {
-    return;
+    if (user) {
+      const { email, id, __token, _expirationDate } = JSON.parse(user);
+      this.authService.createUser(email, id, __token, _expirationDate);
+    } else {
+      return;
+    }
   }
-}
 }

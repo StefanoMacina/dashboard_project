@@ -6,14 +6,14 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NavigationService } from '../../services/navigation.service';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, MatFormFieldModule, MatIconModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatInputModule],
+  imports: [CommonModule, MatFormFieldModule, MatIconModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatInputModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -41,10 +41,4 @@ export class LoginComponent {
     this.navigationService.gotoHomePage()
   })
   }
-
-  gotoSignupPage(){
-    this.navigationService.gotoSignupPage()
-  }
-
-
 }
